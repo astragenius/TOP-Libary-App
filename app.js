@@ -4,7 +4,7 @@ function Book(titel, author, page, read) {
     this.page = page
     this.read = read
 
-    this.id = Math.floor(Math.random() * 100)
+    this.id = Math.floor(Math.random() * 1000)
 
 
 }
@@ -55,6 +55,12 @@ function Libary() {
 
             data += `<li data-id = ${this.storage[i].id}>`;
             data += `${this.storage[i].titel}`;
+            if(this.storage[i].read === true) {
+
+                data += `<input type="checkbox" checked>`
+            }else {
+                data += `<input type="checkbox">`
+            }
             data += `<button onclick="libary.delete(this)"> DELETE</button>`
             data += '</li>'; 
             
@@ -65,11 +71,9 @@ function Libary() {
     }
 
     this.delete = function(e) {
-        console.log(e.previousSibling.data);
-        let data = e.previousSibling.data;
-        let index = this.storage.findIndex(index => index.titel === data)
+        let data = e.parentNode.dataset.id;
+        let index = this.storage.findIndex(index => index.id === +data)
         this.storage.splice(index, 1);
-        console.log(index)
         this.update();
         
     }
