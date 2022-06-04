@@ -4,19 +4,26 @@ function Book(titel, author, page, read) {
     this.page = page
     this.read = read
 
+    this.id = Math.floor(Math.random() * 100)
 
-    this.setRead = function() {
+
+}
+
+Book.prototype = {
+    
+    setRead: function() {
         
         this.read = true;
-    }
-
-    this.setNoRead = function() {
+    },
+    
+    setNoRead: function() {
         this.read = false;
-    }
-
-    this.Edit = function() {
+    },
+    
+    Edit: function() {
         this.titel = prompt('Geben sie einen Neuen titel an: ');
     }
+
 }
 
 
@@ -35,6 +42,7 @@ function Libary() {
         const checkbox = document.getElementById('read').checked;
         
         this.storage.push(new Book(titel, author, page, checkbox));
+        console.log(this.storage)
         
     }
 
@@ -45,8 +53,9 @@ function Libary() {
 
       for(let i = 0; i < this.storage.length; i++) {
 
-            data += '<li>';
-            data += `Der Titel des Buches ist ${this.storage[i].titel}`;
+            data += `<li data-id = ${this.storage[i].id}>`;
+            data += `${this.storage[i].titel}`;
+            data += `<button onclick="libary.delete(this)"> DELETE</button>`
             data += '</li>'; 
             
       }
@@ -54,6 +63,18 @@ function Libary() {
       bookList.innerHTML = data;
       
     }
+
+    this.delete = function(e) {
+        console.log(e.previousSibling.data);
+        let data = e.previousSibling.data;
+        let index = this.storage.findIndex(index => index.titel === data)
+        this.storage.splice(index, 1);
+        console.log(index)
+        this.update();
+        
+    }
+
+    
 
 }
 
