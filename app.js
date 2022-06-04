@@ -35,10 +35,16 @@ function Libary() {
 
     this.update = function() {
 
-       this.storage.forEach(el => {
-           console.log(el.titel, el.author)
-           
-       })
+      let data = "";
+
+      for(let i = 0; i < this.storage.length; i++) {
+
+            data += '<li>';
+            data += `Der Titel des Buches ist ${this.storage[i].titel}`;
+            data += '</li>'; 
+      }
+      console.log(data);
+      
     }
 
 }
