@@ -21,20 +21,26 @@ function Book(titel, author, page, read) {
 
 
 
+
 function Libary() {
-
+    
     this.storage = [];
-
-
+    
+    
     this.createBook = function() {
-
-        this.storage.push(new Book('ES', 'Stephen King', 894, true));
-        this.storage.push(new Book('Der Anschlag', 'Stephen King', 894, true));
-        this.storage.push(new Book('Harry Potter', 'Rowling', 894, true));
+        
+        const titel = document.getElementById('titel').value.trim();
+        const author = document.getElementById('author').value.trim();
+        const page = document.getElementById('pageNumber').value;
+        const checkbox = document.getElementById('read').checked;
+        
+        this.storage.push(new Book(titel, author, page, checkbox));
+        
     }
 
     this.update = function() {
 
+      const bookList = document.getElementById('bookList');   
       let data = "";
 
       for(let i = 0; i < this.storage.length; i++) {
@@ -42,17 +48,17 @@ function Libary() {
             data += '<li>';
             data += `Der Titel des Buches ist ${this.storage[i].titel}`;
             data += '</li>'; 
+            
       }
-      console.log(data);
+
+      bookList.innerHTML = data;
       
     }
 
 }
 
 const libary = new Libary();
-libary.createBook();
-console.log(libary.storage)
-libary.update();
+const create = document.getElementById('create');
 
-
+create.addEventListener('click', () => {libary.createBook(); libary.update()})
 
