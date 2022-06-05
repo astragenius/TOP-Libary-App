@@ -1,0 +1,50 @@
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-Thin.ttf) format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-Regular.ttf) format('truetype');
+    font-weight: 400;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-Medium.ttf) format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-LightItalic.ttf) format('truetype');
+    font-weight: 300;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-Light.ttf);
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-BoldItalic.ttf) format('truetype');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'Raleway';
+    src: url(/fonts/Raleway-Bold.ttf) format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+/* System Default font stack */
+@font-face {
+    font-family: system;
+    font-style: normal;
+    font-weight: 300;
+    src: local(".SFNSText-Light"), local(".HelveticaNeueDeskInterface-Light"), local(".LucidaGrandeUI"), local("Ubuntu Light"), local("Segoe UI Light"), local("Roboto-Light"), local("DroidSans"), local("Tahoma");
+  }
