@@ -74,20 +74,15 @@ function Libary() {
        
         let data = Number(e.parentNode.dataset.id);
         let readStatus = e.checked;
-        console.log(readStatus)
-        console.log(e.parentNode)
+        
         let index = this.storage.findIndex(index => index.id === data);
         if(readStatus === false) {
-            console.log('set to false')
+            
             this.storage[index]['read'] = false;
         } else {
             this.storage[index]['read'] = true;
-            console.log('set to true')
+           
         }
-
-        
-
-        console.log(this.storage);
         
     }
 
@@ -99,4 +94,3 @@ const libary = new Libary();
 const create = document.getElementById('create');
 
 create.addEventListener('click', () => {libary.createBook(); libary.update()})
-
