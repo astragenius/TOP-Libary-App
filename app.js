@@ -9,23 +9,6 @@ function Book(titel, author, page, read) {
 
 }
 
-Book.prototype = {
-    
-    setRead: function() {
-        
-        this.read = true;
-    },
-    
-    setNoRead: function() {
-        this.read = false;
-    },
-    
-    Edit: function() {
-        this.titel = prompt('Geben sie einen Neuen titel an: ');
-    }
-
-}
-
 
 
 
@@ -57,10 +40,11 @@ function Libary() {
             data += `${this.storage[i].titel}`;
             if(this.storage[i].read === true) {
 
-                data += `<input type="checkbox" checked>`
+                data += `<input type="checkbox" checked onChange="libary.changeRead(this)">`
             }else {
-                data += `<input type="checkbox">`
+                data += `<input type="checkbox" onClick="libary.changeRead(this)">`
             }
+            data += `<button onclick="libary.edit(this)">EDIT</button>` 
             data += `<button onclick="libary.delete(this)"> DELETE</button>`
             data += '</li>'; 
             
@@ -71,10 +55,39 @@ function Libary() {
     }
 
     this.delete = function(e) {
-        let data = e.parentNode.dataset.id;
-        let index = this.storage.findIndex(index => index.id === +data)
+        let data = Number(e.parentNode.dataset.id);
+        let index = this.storage.findIndex(index => index.id === data)
         this.storage.splice(index, 1);
         this.update();
+        
+    }
+
+    
+    this.edit = function(e) {
+        let data = Number(e.parentNode.dataset.id);
+        let index = this.storage.findIndex(index => index.id === data);
+        this.storage[index].titel = prompt('Bitte geben sie einen neuen titel ein');
+        this.update();
+    }
+
+    this.changeRead =  function(e) {
+       
+        let data = Number(e.parentNode.dataset.id);
+        let readStatus = e.checked;
+        console.log(readStatus)
+        console.log(e.parentNode)
+        let index = this.storage.findIndex(index => index.id === data);
+        if(readStatus === false) {
+            console.log('set to false')
+            this.storage[index]['read'] = false;
+        } else {
+            this.storage[index]['read'] = true;
+            console.log('set to true')
+        }
+
+        
+
+        console.log(this.storage);
         
     }
 
