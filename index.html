@@ -11,44 +11,86 @@
 <body>
 
     <header>
-        <img src="" alt="">
-        <h1>The Odin Libary</h1>
+        <div class="wrapper header__flex">
+            <img src="/img/the-odin-img.png" alt="">
+            <h1>Libary APP</h1>
+        </div>
     </header>
-    <main>
+    <main class="wrapper">
 
         <section>
-            <label for="">Book Titel</label>
-            <input type="text">
+            <div class="input__container">
 
-            <label for="">Author</label>
-            <input type="text" name="" id="">
+                <label for="bookTitel">Book Titel
+    
+                    <input id="bookTitel" type="text">
+                </label>
+    
+                <label for="bookAuthor">Author
+    
+                    <input type="text" name="" id="bookAuthor">
+                </label>
+    
+                <label for="bookPages">Pages
+    
+                    <input type="number" name="" id="bookPages">
+                </label>
+    
+                <label for="readStatus">Status
+    
+                    <input type="checkbox" name="" id="readStatus">
+                </label>
+            </div>
+            <div>
 
-            <label for="">Sites</label>
-            <input type="number" name="" id="">
-
-            <label for="">Status</label>
-            <input type="checkbox" name="" id="">
+                <button class="btn btn--create">Create</button>
+            </div>
         </section>
 
 
-        <section>
+        <section class="tabel__container">
             <table>
 
-                <thead>
+                <caption>Books</caption>
+
+                <thead class="tabel__header">
                     <th>Title</th>
                     <th>Author</th>
                     <th>Pages</th>
                     <th>Status</th>
                 </thead>
-                <tbody>
+                <tbody class="libary">
 
-                    <tr>
+                    <tr class="libary__book">
+
                         <td>ES</td>
                         <td>Steven King</td>
                         <td>1200</td>
                         <td><input type="checkbox" name="" id=""></td>
-                        <td><button>Edit</button></td>
-                        <td><button>Delete</button></td>
+                        <td><button class="btn btn--edit">Edit</button></td>
+                        <td><button class="btn btn--delete">Delete</button></td>
+                    </tr>
+
+
+                    <tr class="libary__book">
+
+                        <td>ES</td>
+                        <td>Steven King</td>
+                        <td>1200</td>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td><button class="btn btn--edit">Edit</button></td>
+                        <td><button class="btn btn--delete">Delete</button></td>
+                    </tr>
+
+
+                    <tr class="libary__book">
+
+                        <td>ES</td>
+                        <td>Steven King</td>
+                        <td>1200</td>
+                        <td><input type="checkbox" name="" id=""></td>
+                        <td><button class="btn btn--edit">Edit</button></td>
+                        <td><button class="btn btn--delete">Delete</button></td>
                     </tr>
 
                 </tbody>

@@ -1,0 +1,13 @@
+.input__container {
+
+    border: 2px solid magenta;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    label {
+        display: flex;
+        flex-direction: column;
+    }
+}
