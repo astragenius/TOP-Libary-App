@@ -18,6 +18,12 @@ button {
     transition: 200ms ease-in;
 }
 
+
+
+.libary__book > .libary__btn {
+    text-align: right;
+}
+
 .btn--create {
     background-color: $blue-500;
 
@@ -41,3 +47,14 @@ button {
         background-color: $green-hover;
     }
 }
+
+.btn--status {
+
+    border: 1px solid $neutral-grey-200;
+    color: $neutral-grey-800;
+
+    &:hover {
+        border-color: $neutral-grey-900;
+    }
+}
+

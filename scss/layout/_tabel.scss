@@ -3,18 +3,13 @@ table {
     width: 100%;
     border-collapse: collapse;
     border-spacing: 0;
-    color: $neutral-grey-900;
-
     
-    tr {
-        border-bottom: 1px solid $neutral-grey-200;
-    }
-    td {
-        
-        padding: 0.6em 0;
-        text-align: center;
-    }
+    
+}
 
+.tabel__container {
+    
+    margin-top: 4em;
 }
 
 
