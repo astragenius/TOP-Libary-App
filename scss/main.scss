@@ -2,11 +2,14 @@
 
 @import 'abstracts/variables';
 @import 'abstracts/breakpoints';
+
 @import 'layout/content';
 @import 'layout/header';
 @import 'layout/input';
 @import 'layout/tabel';
 
+@import 'components/header';
+@import 'components/buttons';
 
 @import 'base/resett';
 @import 'base/typography';
