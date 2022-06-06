@@ -19,10 +19,10 @@ function Libary() {
     
     this.createBook = function() {
         
-        const titel = document.getElementById('titel').value.trim();
-        const author = document.getElementById('author').value.trim();
-        const page = document.getElementById('pageNumber').value;
-        const checkbox = document.getElementById('read').checked;
+        const titel = document.getElementById('bookTitel').value.trim();
+        const author = document.getElementById('bookAuthor').value.trim();
+        const page = document.getElementById('bookPages').value;
+        const checkbox = document.getElementById('readStatus').value;
         
         this.storage.push(new Book(titel, author, page, checkbox));
         console.log(this.storage)
@@ -36,17 +36,16 @@ function Libary() {
 
       for(let i = 0; i < this.storage.length; i++) {
 
-            data += `<li data-id = ${this.storage[i].id}>`;
-            data += `${this.storage[i].titel}`;
-            if(this.storage[i].read === true) {
 
-                data += `<input type="checkbox" checked onChange="libary.changeRead(this)">`
-            }else {
-                data += `<input type="checkbox" onClick="libary.changeRead(this)">`
-            }
-            data += `<button onclick="libary.edit(this)">EDIT</button>` 
-            data += `<button onclick="libary.delete(this)"> DELETE</button>`
-            data += '</li>'; 
+
+            data += `<tr data-id=${this.storage[i].id} class="libary__book">`;
+            data += `<td>${this.storage[i].titel}</td>`;
+            data += `<td>${this.storage[i].author}</td>`;
+            data += `<td>${this.storage[i].page}</td>`;
+            data += `<td><button class="btn btn--status onClick="libary.changeRead(this)">${this.storage[i].read}</button></td>`;
+            data += `<td class="libary__btn"><button onClick="libary.edit(this)" class="btn btn--edit">Edit</button></td>`;
+            data += `<td class="libary__btn"><button onClick="libary.delete(this)" class="btn btn--delete">Delete</button></td>`;
+            data += `</tr>`;       
             
       }
 
@@ -64,8 +63,10 @@ function Libary() {
 
     
     this.edit = function(e) {
-        let data = Number(e.parentNode.dataset.id);
+        let data = Number(e.parentNode.parentNode.dataset.id);
         let index = this.storage.findIndex(index => index.id === data);
+        console.log(data);
+        
         this.storage[index].titel = prompt('Bitte geben sie einen neuen titel ein');
         this.update();
     }
