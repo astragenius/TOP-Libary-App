@@ -3,17 +3,24 @@
     
     
     input[type="text"],
-    input[type="number"] {
+    input[type="number"],
+    select {
         
-        border-radius: 5px;
+        border-radius: 4px;
         border: 1px solid $neutral-grey-200;
         height: 40px;
-        margin-top: 0.5em;
+        
     }
 
     label {
         color: $neutral-grey-900;
         font-weight: bold;
         
+    }
+
+    select {
+        background-color: white;
+        font-weight: 400;
+        color: $neutral-grey-900;
     }
 }
