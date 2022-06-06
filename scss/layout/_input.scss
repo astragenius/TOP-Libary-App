@@ -6,6 +6,10 @@
     justify-content: space-between;
     align-items: center;
 
+    @include mobile {
+        display: block;
+    }
+
     label {
         display: flex;
         flex-direction: column;

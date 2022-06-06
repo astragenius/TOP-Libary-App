@@ -8,4 +8,9 @@ header {
 .header__flex {
     display: flex;
     justify-content: center;
+
+    @include mobile {
+        display: block;
+        text-align: center;
+    }
 }
