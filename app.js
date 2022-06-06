@@ -54,7 +54,8 @@ function Libary() {
     }
 
     this.delete = function(e) {
-        let data = Number(e.parentNode.dataset.id);
+        let data = Number(e.parentNode.parentNode.dataset.id);
+        console.log(data)
         let index = this.storage.findIndex(index => index.id === data)
         this.storage.splice(index, 1);
         this.update();
@@ -65,7 +66,7 @@ function Libary() {
     this.edit = function(e) {
         let data = Number(e.parentNode.parentNode.dataset.id);
         let index = this.storage.findIndex(index => index.id === data);
-        console.log(data);
+        
         
         this.storage[index].titel = prompt('Bitte geben sie einen neuen titel ein');
         this.update();
@@ -73,7 +74,7 @@ function Libary() {
 
     this.changeRead =  function(e) {
        
-        let data = Number(e.parentNode.dataset.id);
+        let data = Number(e.parentNode.parentNode.dataset.id);
         let readStatus = e.checked;
         
         let index = this.storage.findIndex(index => index.id === data);
