@@ -130,22 +130,3 @@ const create = document.getElementById('create');
 create.addEventListener('click', () => {libary.createBook(); libary.update()})
 libary.loadStorage();
 
-/* 
-const newArray = [];
-const user = {
-
-    name: 'Torsten',
-    nachname : 'Kobald',
-    alter: 30
-}
-
-newArray.push(user)
-
-window.localStorage.setItem('data', JSON.stringify(newArray));
-console.log(JSON.parse(window.localStorage.getItem('data')))
-window.localStorage.clear();
-
-
-
-
- */
