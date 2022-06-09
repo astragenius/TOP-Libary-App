@@ -18,7 +18,13 @@ function Libary() {
 
     this.loadStorage = function() {
 
-        window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+        if(window.localStorage.length > 0) {
+
+            this.storage = window.localStorage.getItem('bookStorage');
+        }else {
+
+            window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+        }
     }
 
     this.setToLocalStorage = function(data) {
@@ -36,7 +42,7 @@ function Libary() {
         const author = document.getElementById('bookAuthor').value.trim();
         const page = document.getElementById('bookPages').value;
         const checkbox = document.getElementById('readStatus').value;
-        
+        let book = new Book(titel, author, page, checkbox);
         this.storage.push(new Book(titel, author, page, checkbox));
         console.log(this.storage);
         
@@ -113,8 +119,8 @@ const libary = new Libary();
 const create = document.getElementById('create');
 
 create.addEventListener('click', () => {libary.createBook(); libary.update()})
-libary.loadStorage();
 
+libary.loadStorage();
 /* 
 const newArray = [];
 const user = {
