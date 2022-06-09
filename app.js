@@ -20,19 +20,26 @@ function Libary() {
 
         if(window.localStorage.length > 0) {
 
-            this.storage = window.localStorage.getItem('bookStorage');
+            this.storage = JSON.parse(window.localStorage.getItem('bookStorage'));
+            console.log('LocalStorage exist')
+            console.log(this.storage)
+            this.update();
         }else {
 
             window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+            console.log('localStore is been created')
         }
     }
 
     this.setToLocalStorage = function(data) {
 
-        let storage = JSON.parse(window.localStorage.getItem('bookStorage') || []);
-        storage.push(data);
-        console.log(storage);
-        window.localStorage.setItem('bookStorage', JSON.stringify(storage));
+        this.storage.push(data);
+        console.log(this.storage);
+        window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+    }
+
+    this.removeFromLocalStorage = function() {
+        window.localStorage.setItem('bookStorage', JSON.stringify(this.storage))
     }
     
     
@@ -43,8 +50,9 @@ function Libary() {
         const page = document.getElementById('bookPages').value;
         const checkbox = document.getElementById('readStatus').value;
         let book = new Book(titel, author, page, checkbox);
-        this.storage.push(new Book(titel, author, page, checkbox));
-        console.log(this.storage);
+        this.setToLocalStorage(book);
+
+        
         
     }
 
@@ -77,6 +85,7 @@ function Libary() {
         console.log(data)
         let index = this.storage.findIndex(index => index.id === data)
         this.storage.splice(index, 1);
+        this.removeFromLocalStorage();
         this.update();
         
     }
@@ -119,8 +128,8 @@ const libary = new Libary();
 const create = document.getElementById('create');
 
 create.addEventListener('click', () => {libary.createBook(); libary.update()})
-
 libary.loadStorage();
+
 /* 
 const newArray = [];
 const user = {
