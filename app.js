@@ -15,6 +15,19 @@ function Book(titel, author, page, read) {
 function Libary() {
     
     this.storage = [];
+
+    this.loadStorage = function() {
+
+        window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+    }
+
+    this.setToLocalStorage = function(data) {
+
+        let storage = JSON.parse(window.localStorage.getItem('bookStorage') || []);
+        storage.push(data);
+        console.log(storage);
+        window.localStorage.setItem('bookStorage', JSON.stringify(storage));
+    }
     
     
     this.createBook = function() {
@@ -68,7 +81,9 @@ function Libary() {
         let index = this.storage.findIndex(index => index.id === data);
         
         
-        this.storage[index].titel = prompt('Bitte geben sie einen neuen titel ein');
+        this.storage[index].titel = prompt('Please enter new book titel', this.storage[index].titel);
+        this.storage[index].author = prompt('Please enter new Author name', this.storage[index].author);
+        this.storage[index].page = Number(prompt('Please enter new Page number', this.storage[index].page));
         this.update();
     }
 
@@ -98,3 +113,24 @@ const libary = new Libary();
 const create = document.getElementById('create');
 
 create.addEventListener('click', () => {libary.createBook(); libary.update()})
+libary.loadStorage();
+
+/* 
+const newArray = [];
+const user = {
+
+    name: 'Torsten',
+    nachname : 'Kobald',
+    alter: 30
+}
+
+newArray.push(user)
+
+window.localStorage.setItem('data', JSON.stringify(newArray));
+console.log(JSON.parse(window.localStorage.getItem('data')))
+window.localStorage.clear();
+
+
+
+
+ */
