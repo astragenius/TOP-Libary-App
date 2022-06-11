@@ -136,8 +136,8 @@ window.onload = function() {
     
     const create = document.getElementById('create');
     const clear = document.getElementById('clear');
-    clear.addEventListener('click', () => {libary.clearAll(); libary.update()})
-    create.addEventListener('click', () => {libary.createBook(); libary.update()})
+    clear.addEventListener('click', () => { libary.clearAll(); libary.update() })
+    create.addEventListener('click', () => { libary.createBook(); libary.update() })
     libary.loadStorage();
 
 }
