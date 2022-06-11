@@ -9,9 +9,6 @@ function Book(titel, author, page, read) {
 
 }
 
-
-
-
 function Libary() {
     
     this.storage = [];
@@ -21,8 +18,6 @@ function Libary() {
         if(window.localStorage.length > 0) {
 
             this.storage = JSON.parse(window.localStorage.getItem('bookStorage'));
-            console.log('LocalStorage exist')
-            console.log(this.storage)
             this.update();
         }else {
 
@@ -31,14 +26,14 @@ function Libary() {
         }
     }
 
+    // New Book object pushed to the localStorage
     this.setToLocalStorage = function(data) {
 
         this.storage.push(data);
-        console.log(this.storage);
-        window.localStorage.setItem('bookStorage', JSON.stringify(this.storage));
+        this.updateStorage();
     }
 
-    this.removeFromLocalStorage = function() {
+    this.updateStorage = function() {
         window.localStorage.setItem('bookStorage', JSON.stringify(this.storage))
     }
     
@@ -82,10 +77,9 @@ function Libary() {
 
     this.delete = function(e) {
         let data = Number(e.parentNode.parentNode.dataset.id);
-        console.log(data)
         let index = this.storage.findIndex(index => index.id === data)
         this.storage.splice(index, 1);
-        this.removeFromLocalStorage();
+        this.updateStorage();
         this.update();
         
     }
@@ -99,6 +93,7 @@ function Libary() {
         this.storage[index].titel = prompt('Please enter new book titel', this.storage[index].titel);
         this.storage[index].author = prompt('Please enter new Author name', this.storage[index].author);
         this.storage[index].page = Number(prompt('Please enter new Page number', this.storage[index].page));
+        this.updateStorage();
         this.update();
     }
 
@@ -106,7 +101,6 @@ function Libary() {
        
         let data = Number(e.parentNode.parentNode.dataset.id);
         let readStatus = e.textContent;
-        console.log(e.textContent)
         let index = this.storage.findIndex(index => index.id === data);
         if(readStatus === 'not Read') {
             
@@ -115,7 +109,7 @@ function Libary() {
             this.storage[index]['read'] = 'not Read';
            
         }
-
+        this.updateStorage();
         this.update();
         
     }
@@ -125,8 +119,20 @@ function Libary() {
 }
 
 const libary = new Libary();
-const create = document.getElementById('create');
+window.onload = function() {
+    
+    
+    const create = document.getElementById('create');
+    create.addEventListener('click', () => {libary.createBook(); libary.update()})
+    libary.loadStorage();
 
-create.addEventListener('click', () => {libary.createBook(); libary.update()})
-libary.loadStorage();
+}
+
+
+
+
+
+
+
+
 
