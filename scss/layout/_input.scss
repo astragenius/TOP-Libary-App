@@ -33,6 +33,7 @@
 }
 
 .button__container {
-
+    display: flex;
+    justify-content: space-between;
     margin-left: 1em;
 }

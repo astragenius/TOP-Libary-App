@@ -13,6 +13,8 @@ function Libary() {
     
     this.storage = [];
 
+
+
     this.loadStorage = function() {
 
         if(window.localStorage.length > 0) {
@@ -26,6 +28,15 @@ function Libary() {
         }
     }
 
+    this.clearAll = function() {
+        window.localStorage.removeItem('bookStorage');
+        while(this.storage.length > 0) {
+
+            this.storage.pop();
+        }
+       
+    }
+
     // New Book object pushed to the localStorage
     this.setToLocalStorage = function(data) {
 
@@ -37,6 +48,7 @@ function Libary() {
         window.localStorage.setItem('bookStorage', JSON.stringify(this.storage))
     }
     
+
     
     this.createBook = function() {
         
@@ -123,6 +135,8 @@ window.onload = function() {
     
     
     const create = document.getElementById('create');
+    const clear = document.getElementById('clear');
+    clear.addEventListener('click', () => {libary.clearAll(); libary.update()})
     create.addEventListener('click', () => {libary.createBook(); libary.update()})
     libary.loadStorage();
 
