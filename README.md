@@ -30,7 +30,7 @@
     The Odin Project Assignment
     <br />
     <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
+    <a href="https://top-libary-app.vercel.app/">View Demo</a>
     ·
     <a href="https://www.theodinproject.com/lessons/node-path-javascript-library">Link to the Assignment</a>
   </p>
