@@ -1,5 +1,6 @@
-## The Odin Project Assignment
-
+<div align="center">
+<h1>The Odin Project Assignment</h1>
+</div>
 
 
 
@@ -66,6 +67,8 @@
 
 
 ### Built With
+<div align="center">
+
 
 | Editor      |                                             Language                                                                           |    Hosting   | 
 | -----------                                               | -----------                                                                         | ----- |
@@ -73,6 +76,7 @@
 |                | ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)|
 |             | ![SASS](https://img.shields.io/badge/SASS-hotpink.svg?style=for-the-badge&logo=SASS&logoColor=white)       |
 
+</div>
 
 
 
@@ -106,7 +110,7 @@
 ## Acknowledgments
 
 * [Local Storage](https://blog.logrocket.com/localstorage-javascript-complete-guide/)
-Good and simple explanation how to use the localStorage API of the browser
+Good and simple explanation of how to use the localStorage API in the browser.
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
